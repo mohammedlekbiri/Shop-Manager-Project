@@ -1,13 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <title>Shop Manager</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shop Manager – Catalogue</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/main.js"></script>
 </head>
-<body>
-    <h1 class="">HI</h1>
-    <p class=""></p>
+<body class="bg-slate-50 text-slate-900">
+
+  <!-- Header -->
+  <header class="bg-white border-b">
+    <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-lg bg-indigo-600"></div>
+        <span class="text-sm font-semibold">Shop Manager</span>
+      </div>
+      <span class="text-xs text-green-700 bg-green-50 border border-green-200 rounded-full px-3 py-1">
+        ● API connected · localhost:3000
+      </span>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-6 flex gap-6">
+
+    <!-- Filters -->
+    <aside class="w-60 bg-white border rounded-xl p-4 h-fit">
+      <div class="flex justify-between mb-4">
+        <h2 class="text-sm font-semibold">Filters</h2>
+        <button class="text-xs text-indigo-600">Reset</button>
+      </div>
+
+      <p class="text-xs text-slate-500 mb-2">CATEGORY</p>
+      <div class="space-y-2 text-xs mb-5">
+        <label class="flex items-center gap-2"><input type="radio" name="categorie" checked /> All categories</label>
+        <label class="flex items-center gap-2"><input type="radio" name="categorie" /> Electronics</label>
+        <label class="flex items-center gap-2"><input type="radio" name="categorie" /> Clothing</label>
+        <label class="flex items-center gap-2"><input type="radio" name="categorie" /> Home</label>
+        <label class="flex items-center gap-2"><input type="radio" name="categorie" /> Sports</label>
+      </div>
+
+      <div class="flex justify-between text-xs mb-2">
+        <span class="text-slate-500">MAX PRICE</span>
+        <span class="font-semibold">≤ 500 €</span>
+      </div>
+      <input type="range" min="0" max="500" value="500" class="w-full" />
+      <div class="flex justify-between text-xs text-slate-400 mb-5">
+        <span>0 €</span><span>500 €</span>
+      </div>
+
+      <label class="flex justify-between items-center text-xs font-medium mb-4">
+        In stock only <input type="checkbox" />
+      </label>
+
+      <button class="w-full border rounded-lg py-2 text-xs font-medium">Reset filters</button>
+    </aside>
+
+    <!-- Products -->
+    <section class="flex-1">
+      <div class="flex gap-3 mb-3">
+        <input type="text" placeholder="Search by name or description..."
+          class="flex-1 bg-white border rounded-lg px-3 py-2 text-xs" />
+        <button class="bg-indigo-600 text-white text-xs font-semibold rounded-lg px-5">Search</button>
+      </div>
+
+      <p class="text-xs text-slate-500 mb-3">6 products</p>
+
+      <div class="grid grid-cols-3 gap-4" id="cardContainer">
+
+        <!-- Card Template -->
+        <article class="bg-white border rounded-xl overflow-hidden" >
+          <div class="h-28 bg-indigo-50"></div>
+          <div class="p-4">
+            <div class="flex justify-between mb-2">
+              <span class="text-[10px] bg-indigo-50 text-indigo-600 rounded px-1.5 py-0.5">Electronics</span>
+              <span class="text-[10px] bg-green-50 text-green-600 rounded px-1.5 py-0.5">In stock</span>
+            </div>
+            <h3 class="text-sm font-semibold">Wireless Headphones</h3>
+            <p class="text-[11px] text-slate-500 mb-3">Over-ear Bluetooth headphones with noise cancelling and 30h battery life.</p>
+            <div class="flex justify-between items-end">
+              <span class="font-bold">129.99 €</span>
+              <span class="text-[10px] text-slate-500">Qty: 24</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
 </body>
 </html>
