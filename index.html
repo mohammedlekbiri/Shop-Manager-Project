@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shop Manager – Catalogue</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </head>
 <body class="bg-slate-50 text-slate-900">
 
@@ -28,13 +28,13 @@
     <aside class="w-60 bg-white border rounded-xl p-4 h-fit">
       <div class="flex justify-between mb-4">
         <h2 class="text-sm font-semibold">Filters</h2>
-        <button class="text-xs text-indigo-600">Reset</button>
+        <button class="text-xs text-indigo-600" type="reset">Reset</button>
       </div>
 
       <p class="text-xs text-slate-500 mb-2">CATEGORY</p>
       <div class="space-y-2 text-xs mb-5">
-        <label class="flex items-center gap-2"><input type="radio" name="categorie" checked /> All categories</label>
-        <label class="flex items-center gap-2"><input type="radio" name="categorie" /> Electronics</label>
+        <label class="flex items-center gap-2"><input type="radio" name="categorie" checked > All categories</label>
+        <label class="flex items-center gap-2"><input type="radio" name="categorie" > Electronics</label>
         <label class="flex items-center gap-2"><input type="radio" name="categorie" /> Clothing</label>
         <label class="flex items-center gap-2"><input type="radio" name="categorie" /> Home</label>
         <label class="flex items-center gap-2"><input type="radio" name="categorie" /> Sports</label>
@@ -50,7 +50,7 @@
       </div>
 
       <label class="flex justify-between items-center text-xs font-medium mb-4">
-        In stock only <input type="checkbox" />
+        In stock only <input type="checkbox" >
       </label>
 
       <button class="w-full border rounded-lg py-2 text-xs font-medium">Reset filters</button>
@@ -64,13 +64,13 @@
         <button class="bg-indigo-600 text-white text-xs font-semibold rounded-lg px-5">Search</button>
       </div>
 
-      <p class="text-xs text-slate-500 mb-3">6 products</p>
+      <p class="text-xs text-slate-500 mb-3" id="productQty">6 products</p>
 
       <div class="grid grid-cols-3 gap-4" id="cardContainer">
 
         <!-- Card Template -->
-        <article class="bg-white border rounded-xl overflow-hidden" >
-          <div class="h-28 bg-indigo-50"></div>
+        <!-- <article class="bg-white border rounded-xl overflow-hidden" >
+          <div class="h-28 bg-indigo-50"><img class="size-full" src="https://imgs.search.brave.com/9tOFEnEY-79Y1dn2KvHYCH83fP2XtRNU_G5_tyrEJeQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/aGVhZGFtcC5jb20v/Y2RuL3Nob3AvZmls/ZXMvc2VubmhlaXNl/ci1oZGI2MzAtbWFp/bi5qcGc_dj0xNzYw/MDI0MjI5JndpZHRo/PTM4NDA"></div>
           <div class="p-4">
             <div class="flex justify-between mb-2">
               <span class="text-[10px] bg-indigo-50 text-indigo-600 rounded px-1.5 py-0.5">Electronics</span>
@@ -83,8 +83,16 @@
               <span class="text-[10px] text-slate-500">Qty: 24</span>
             </div>
           </div>
-        </article>
+        </article> -->
 
+        <!---Error page--->
+          
+            <i></i>
+          <p class="mt-1 text-base font-semibold text-gray-900">Unable to load products</p>
+          <p class="max-w-xs text-xs leading-relaxed text-gray-500">The server did not respond. Make sure your local API is running, then try again.</p>
+          <p class="rounded-md border border-gray-200 bg-gray-100 px-2.5 py-1 text-xs text-gray-500">GET http://localhost:3000/products — Failed to fetch</p>
+          <button class="mt-2 rounded-lg bg-indigo-600 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">Try again</button>
+          
       </div>
     </section>
   </main>
