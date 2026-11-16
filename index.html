@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shop Manager – Catalogue</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="js/main.js" defer></script>
+  <script src="js/main.js" type="module"></script>
+  <script src="js/DOM&UI.js" type="module"></script>
 </head>
 <body class="bg-slate-50 text-slate-900">
 
@@ -32,12 +33,12 @@
       </div>
 
       <p class="text-xs text-slate-500 mb-2">CATEGORY</p>
-      <div class="space-y-2 text-xs mb-5">
-        <label class="flex items-center gap-2"><input type="radio" name="categorie" checked > All categories</label>
+      <div class="space-y-2 text-xs mb-5" id="categoriesContainer">
+        <!-- <label class="flex items-center gap-2"><input type="radio" name="categorie" checked > All categories</label>
         <label class="flex items-center gap-2"><input type="radio" name="categorie" > Electronics</label>
         <label class="flex items-center gap-2"><input type="radio" name="categorie" /> Clothing</label>
         <label class="flex items-center gap-2"><input type="radio" name="categorie" /> Home</label>
-        <label class="flex items-center gap-2"><input type="radio" name="categorie" /> Sports</label>
+        <label class="flex items-center gap-2"><input type="radio" name="categorie" /> Sports</label> -->
       </div>
 
       <div class="flex justify-between text-xs mb-2">
@@ -59,14 +60,14 @@
     <!-- Products -->
     <section class="flex-1">
       <div class="flex gap-3 mb-3">
-        <input type="text" placeholder="Search by name or description..."
+        <input type="text" id="searchInput" placeholder="Search by name or description..."
           class="flex-1 bg-white border rounded-lg px-3 py-2 text-xs" />
         <button class="bg-indigo-600 text-white text-xs font-semibold rounded-lg px-5">Search</button>
       </div>
 
       <p class="text-xs text-slate-500 mb-3" id="productQty">6 products</p>
 
-      <div class="grid grid-cols-3 gap-4" id="cardContainer">
+      <div class="grid grid-cols-3 gap-4" id="productContainer">
 
         <!-- Card Template -->
         <!-- <article class="bg-white border rounded-xl overflow-hidden" >

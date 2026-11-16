@@ -1,51 +1,58 @@
-const productQty = document.querySelector('#productQty')
+import {
+  fetchProducts,
+  renderProducts,
+  fetchBySearch,
+  renderProductsBySearch,
+  productsByCategory,
+} from "./Products.js";
+import { checkedCategories } from "./DOM&UI.js";
+import { renderCategories } from "./categories.js";
+export const producturl = "http://localhost:3000/api/products";
+export const categoriesurl = "http://localhost:3000/api/categories";
 
-async function getProducts() {
-  const response = await fetch("http://localhost:3000/api/poducts");
-  console.log(response.status);
-  let products = await response.json();
-  console.log(products);
-  return products;
-}
-// productQty.textContent = await products.length
-// async (products) => {
-//   const data = await products
-//   console.log(data)
-// }
+// const productQty = document.querySelector("#productQty"); -----------to save
 
+//------ fetch products
 
-const cardContainer = document.querySelector("#cardContainer");
-const affichagecard = async () => {
-  // console.log(cardContainer);
-  let data = await getProducts();
-  try {
-       data.forEach((element) => {
-    cardContainer.innerHTML += `<article class="bg-white border rounded-xl overflow-hidden" >
-          <div class="h-28 bg-indigo-50"><img src="${element.image}"></div>
-          <div class="p-4">
-            <div class="flex justify-between mb-2">
-              <span class="text-[10px] bg-indigo-50 text-indigo-600 rounded px-1.5 py-0.5">${element.categoryName}</span>
-              <span class="text-[10px] bg-green-50 text-green-600 rounded px-1.5 py-0.5">in stock</span>
-            </div>
-            <h3 class="text-sm font-semibold">${element.name}</h3>
-            <p class="text-[11px] text-slate-500 mb-3">${element.description}</p>
-            <div class="flex justify-between items-end">
-              <span class="font-bold">${element.price} €</span>
-              <span class="text-[10px] text-slate-500">Qty: ${element.stock}</span>
-            </div>
-          </div>
-        </article>`;
-    })
-  } catch (error) {
-    
-    cardContainer.classList.remove("grid" , "grid-cols-3" )
-    cardContainer.classList.add("flex-col" , "p-1", "bg-blue-100","justify-items-center","content-end")
+fetchProducts();
 
-  }}
+//-------  render fetched products
+
+renderProducts();
+
+//-------- get products by search
+
+fetchBySearch();
+
+//-------- render products By Search
+
+renderProductsBySearch();
+
+//------------fetch products by category or categories
+
+productsByCategory();
+
+//---------render Products By Category or categories
+
+//----- get categories and render them in DOM
 
 
-affichagecard();
+renderCategories();
 
+// const response = await fetch(`${producturl}?categoryId=${}`);
+// console.log(response.status);
+// console.log(await response.json());
 
+//---------- render filtered products
 
-
+// const renderFilteredproducts = async (search, category, price, stock) => {
+//   try {
+//     const productContainer = document.querySelector("#productContainer");
+//     productContainer.innerHTML = ``;
+//     const filteredProducts = [];
+//     filteredProducts.push(search);
+//     filteredProducts.push(category);
+//     filteredProducts.push(price);
+//     filteredProducts.push(stock);
+//   } catch (error) {}
+// };
