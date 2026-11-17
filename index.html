@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shop Manager – Catalogue</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" defer></script>
   <script src="js/main.js" type="module"></script>
   <script src="js/DOM&UI.js" type="module"></script>
 </head>
+
 <body class="bg-slate-50 text-slate-900">
 
   <!-- Header -->
@@ -20,8 +23,79 @@
       <span class="text-xs text-green-700 bg-green-50 border border-green-200 rounded-full px-3 py-1">
         ● API connected · localhost:3000
       </span>
+      <i class="fa-solid fa-cart-shopping text-indigo-500 w-10 h-10"></i>
     </div>
   </header>
+  <aside class=" w-full max-w-sm mx-auto bg-white border-t-2 border-b-2 border-sky-400">
+    <!-- Cart container Header -->
+    <header class="">
+      <p class="text-2xl">Your cart<span class="p-1 bg-blue-300 rounded-3xl text-sm">4 items</span></p>
+      <button class="w-20 h-20 p-10"><i class="fa-solid fa-xmark"></i>X</button>
+    </header>
+    <!-- Cart container items -->
+    <section class="flex-col">
+      <article class="overflow-hidden">
+        <div class="w-100 h-100"><img src="Assests/51WN5aXZWIL.jpg" class="w-50 h-50"></div>
+        <div class="itemInfos">
+          <div class="itemData">
+            <div>
+              <p>Wireless Headphones</p>
+              <p>Electronics</p>
+            </div>
+            <button><i class="fa-solid fa-trash-can"></i>D</button>
+          </div>
+          <div class="itemQty">
+            <input type="number">
+            <span>129.50 $</span>
+          </div>
+        </div>
+      </article>
+
+      <article>
+        <img src="">
+        <div class="itemInfos">
+          <div class="itemData">
+            <div>
+              <p>Wireless Headsets</p>
+              <p>Electronics</p>
+            </div>
+            <button><i class="fa-solid fa-trash-can"></i>D</button>
+          </div>
+          <div class="itemQty">
+            <input type="number">
+            <span>129.50 $</span>
+          </div>
+        </div>
+      </article>
+      <article>
+        <img src="">
+        <div class="itemInfos">
+          <div class="itemData">
+            <div>
+              <p>used keyboard</p>
+              <p>Electronics</p>
+            </div>
+            <button><i class="fa-solid fa-trash-can"></i>D</button>
+          </div>
+          <div class="itemQty">
+            <input type="number">
+            <span>129.50 $</span>
+          </div>
+        </div>
+      </article>
+    </section>
+    <!-- total Item container -->
+    <footer>
+      <div>
+        <span>Total</span>
+        <span>1250.45 $</span>
+      </div>
+      <div>
+        <button>Checkout</button>
+        <button>Continue shopping</button>
+      </div>
+    </footer>
+  </aside>
 
   <main class="max-w-6xl mx-auto px-6 py-6 flex gap-6">
 
@@ -32,6 +106,9 @@
         <button class="text-xs text-indigo-600" type="reset">Reset</button>
       </div>
 
+      <section>
+
+      </section>
       <p class="text-xs text-slate-500 mb-2">CATEGORY</p>
       <div class="space-y-2 text-xs mb-5" id="categoriesContainer">
         <!-- <label class="flex items-center gap-2"><input type="radio" name="categorie" checked > All categories</label>
@@ -51,7 +128,7 @@
       </div>
 
       <label class="flex justify-between items-center text-xs font-medium mb-4">
-        In stock only <input type="checkbox" >
+        In stock only <input type="checkbox">
       </label>
 
       <button class="w-full border rounded-lg py-2 text-xs font-medium">Reset filters</button>
@@ -87,15 +164,20 @@
         </article> -->
 
         <!---Error page--->
-          
-            <i></i>
-          <p class="mt-1 text-base font-semibold text-gray-900">Unable to load products</p>
-          <p class="max-w-xs text-xs leading-relaxed text-gray-500">The server did not respond. Make sure your local API is running, then try again.</p>
-          <p class="rounded-md border border-gray-200 bg-gray-100 px-2.5 py-1 text-xs text-gray-500">GET http://localhost:3000/products — Failed to fetch</p>
-          <button class="mt-2 rounded-lg bg-indigo-600 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">Try again</button>
-          
+
+        <i></i>
+        <p class="mt-1 text-base font-semibold text-gray-900">Unable to load products</p>
+        <p class="max-w-xs text-xs leading-relaxed text-gray-500">The server did not respond. Make sure your local API
+          is running, then try again.</p>
+        <p class="rounded-md border border-gray-200 bg-gray-100 px-2.5 py-1 text-xs text-gray-500">GET
+          http://localhost:3000/products — Failed to fetch</p>
+        <button
+          class="mt-2 rounded-lg bg-indigo-600 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">Try
+          again</button>
+
       </div>
     </section>
   </main>
 </body>
+
 </html>

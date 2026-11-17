@@ -5,11 +5,9 @@ import {
   renderProductsBySearch,
   productsByCategory,
 } from "./Products.js";
-import { checkedCategories } from "./DOM&UI.js";
+import {  } from "./DOM&UI.js";
 import { renderCategories } from "./categories.js";
-export const producturl = "http://localhost:3000/api/products";
-export const categoriesurl = "http://localhost:3000/api/categories";
-
+import { producturl,categoriesurl } from "./api.js";
 // const productQty = document.querySelector("#productQty"); -----------to save
 
 //------ fetch products
@@ -37,7 +35,6 @@ productsByCategory();
 //----- get categories and render them in DOM
 
 
-renderCategories();
 
 // const response = await fetch(`${producturl}?categoryId=${}`);
 // console.log(response.status);

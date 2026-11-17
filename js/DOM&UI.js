@@ -6,9 +6,9 @@ export const checkedCategories = categoryContainer.querySelectorAll(
 );
 
 
-import { productsByCategory, renderProducts,renderProductsBySearch } from "./Products.js";
+import { productsByCategory, renderProducts,renderProductsBySearch,fetchProducts } from "./Products.js";
 import { renderCategories } from "./categories.js";
-
+import { getCheckedCategoriesIds } from "./categories.js";
 
 
 
@@ -20,7 +20,7 @@ import { renderCategories } from "./categories.js";
 
 
 document.addEventListener("DOMContentLoaded", async () => {
-    renderProducts()
+    renderProducts();
 })
 
 
@@ -28,19 +28,45 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 searchInput.addEventListener('input', () => {
-    renderProductsBySearch()
+    renderProductsBySearch();
 })
 
-////---------get selcted checkboxes id 
+////---------get selected categories Ids 
 
-export const getCheckedCategoriesIds = () =>{}
+
+categoryContainer.addEventListener("change", (event)=>{
+        // getCheckedCategoriesIds();
+
+})
+
+
+//--------- load fetched selcted products by category
+
+
+categoryContainer.addEventListener('change', async () => {
+  const selectedIds = getCheckedCategoriesIds();
+  if (selectedIds.length === 0) return;
+
+  try {
+    const products = await fetchProducts(selectedIds);
+    renderProducts(products);
+  } catch (err) {
+    console.error(err);
+  }
+});
+
 
 //-------- load products on category select
 
-categoryContainer.addEventListener('change', ()=>{
-    console.log(checkedCategories)
+// categoryContainer.addEventListener('change', (e)=>{
+    
+//     console.log(e.target)
+//     const chosencategories=
+// })
+
+
+//---------- load fetcehd categories
+
+document.addEventListener("DOMContentLoaded", async () => {
+    renderCategories();
 })
-
-
-//---------- l
-
