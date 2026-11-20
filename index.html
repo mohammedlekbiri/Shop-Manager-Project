@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shop Manager – Catalogue</title>
+  <link href="./output.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" >
+  <script src="js/main.js" type="module"></script>
+  <script src="js/api.js" type="module"></script>
+  <script src="js/ui.js" type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body class="bg-slate-50 text-slate-900 relative">
+
+  <!-- Header -->
+  <header class="bg-white border-b ">
+    <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-lg bg-indigo-600"></div>
+        <span class="text-sm font-semibold">Shop Manager</span>
+      </div>
+      <span class="text-xs text-green-700 bg-green-50 border border-green-200 rounded-full px-3 py-1">
+        ● API connected · localhost:3000
+      </span>
+      <button id="cartIcon">X<i class="fa-solid fa-cart-shopping text-indigo-500 w-50 h-50"></i></button>
+    </div>
+  </header>
+  <!------------ Cart --------->
+  <!-- backdrop cart (shadow) -->
+   <div id="cartBackdrop" class="hidden fixed inset-0 bg-black/40 z-40"></div>
+<aside class="w-full max-w-sm fixed top-15 right-4 z-50 bg-white border-t-2 border-b-2 border-sky-400  rounded-lg hidden  " id="cartContainer">
+
+  <!-- Cart Header -->
+  <header class="flex justify-between items-center px-5 py-4 border-b-2 border-sky-400">
+
+    <div class="flex items-center gap-2">
+      <p class="text-lg font-bold text-slate-900">Your cart</p>
+      <span class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs font-medium">
+        4 items
+      </span>
+    </div>
+
+    <button class="w-8 h-8 flex items-center justify-center border border-slate-200 rounded-lg text-slate-500 hover:bg-slate-100" id="cartCloseBtn">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+  </header>
+
+  <!-- Cart Items -->
+  <section class="px-5" id="cartItemsContainer">
+
+    <!-- Item 1 -->
+    <article class="flex items-center gap-3 py-4 border-b border-slate-100">
+
+      <div class="w-16 h-16 shrink-0 bg-indigo-50 rounded-xl flex items-center justify-center">
+        <img src="Assests/51WN5aXZWIL.jpg" class="w-full h-full object-contain p-2" alt="Wireless Headphones">
+      </div>
+
+      <div class="flex-1 min-w-0">
+
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="text-sm font-semibold text-slate-900">Wireless Headphones</p>
+            <p class="text-xs text-slate-500">Electronics</p>
+          </div>
+
+          <button class="text-slate-400 hover:text-red-500 w-15 h-15">
+            <i class="fa-solid fa-trash-can text-xs w-15 h-15"></i>
+          </button>
+        </div>
+
+        <div class="flex justify-between items-center mt-2">
+
+          <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
+
+             <input
+    type="number"
+    value="1"
+    min="1"
+    class="w-20 h-9 px-2 text-sm text-center font-semibold border border-slate-200 rounded-lg outline-none focus:border-indigo-500"
+  >
+
+
+          </div>
+
+          <span class="text-sm font-bold text-slate-900">129.99 €</span>
+
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- Cart Footer -->
+  <footer class="bg-slate-50 px-5 py-5">
+    <!-- Total -->
+    <div class="flex justify-between items-center border-t border-slate-200 pt-4 mb-3">
+
+      <span class="text-sm font-semibold text-slate-900">Total</span>
+
+      <span class="text-xl font-bold text-slate-900">316.32 €</span>
+
+    </div>
+
+    <!-- Checkout -->
+    <button class="w-full flex justify-center items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm py-3 rounded-xl mb-2">
+      Checkout
+      <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+    <!-- Continue Shopping -->
+    <button class="w-full bg-white border border-slate-200 hover:bg-slate-100 text-slate-900 font-semibold text-sm py-3 rounded-xl">
+      Continue shopping
+    </button>
+
+  </footer>
+
+</aside>
+
+
+  <main class="max-w-6xl mx-auto px-6 py-6 flex gap-6">
+
+    <!-- Filters -->
+    <aside class="w-60 bg-white border rounded-xl p-4 h-fit">
+      <div class="flex justify-between mb-4">
+        <h2 class="text-sm font-semibold">Filters</h2>
+        <button class="text-xs text-indigo-600" type="reset" id="resetLink">Reset</button>
+      </div>
+
+      <section>
+
+      </section>
+      <!-- Categories -->
+      <p class="text-xs text-slate-500 mb-2">CATEGORY</p>
+      <div class="space-y-2 text-xs mb-5" id="categoriesContainer">
+        <!-- <label class="flex items-center gap-2"><input type="radio" name="categorie" checked > All categories</label>
+        <label class="flex items-center gap-2"><input type="radio" name="categorie" > Electronics</label>
+        <label class="flex items-center gap-2"><input type="radio" name="categorie" /> Clothing</label>
+        <label class="flex items-center gap-2"><input type="radio" name="categorie" /> Home</label>
+        <label class="flex items-center gap-2"><input type="radio" name="categorie" /> Sports</label> -->
+      </div>
+      <!-- Max price range -->
+      <div class="flex justify-between text-xs mb-2">
+        <span class="text-slate-500">MAX PRICE</span>
+        <span class="font-semibold">≤ 500 €</span>
+      </div>
+      <input type="range" min="0" max="500" value="500" class="w-full" id="priceRange"/>
+      <div class="flex justify-between text-xs text-slate-400 mb-5">
+        <span>0 €</span><span id="priceValue">500 €</span>
+      </div>
+      <!-- Stock available -->
+      <label class="flex justify-between items-center text-xs font-medium mb-4">
+        In stock only <input type="checkbox" id="inStock">
+      </label>
+
+      <button class="w-full border rounded-lg py-2 text-xs font-medium" id="resetBtn">Reset filters</button>
+    </aside>
+
+    <!-- Products -->
+    <section class="flex-1">
+      <div class="flex gap-3 mb-3" id="searchForm">
+        <input type="text" id="searchInput" placeholder="Search by name or description..."
+          class="flex-1 bg-white border rounded-lg px-3 py-2 text-xs" />
+        <button class="bg-indigo-600 text-white text-xs font-semibold rounded-lg px-5">Search</button>
+      </div>
+
+      <p class="text-xs text-slate-500 mb-3" id="productQty">6 products</p>
+
+      <div class="grid grid-cols-3 gap-4" id="productContainer">
+
+        <!-- Card Template -->
+        <!-- <article class="bg-white border rounded-xl overflow-hidden" >
+          <div class="h-28 bg-indigo-50"><img class="size-full" src="https://imgs.search.brave.com/9tOFEnEY-79Y1dn2KvHYCH83fP2XtRNU_G5_tyrEJeQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/aGVhZGFtcC5jb20v/Y2RuL3Nob3AvZmls/ZXMvc2VubmhlaXNl/ci1oZGI2MzAtbWFp/bi5qcGc_dj0xNzYw/MDI0MjI5JndpZHRo/PTM4NDA"></div>
+          <div class="p-4">
+            <div class="flex justify-between mb-2">
+              <span class="text-[10px] bg-indigo-50 text-indigo-600 rounded px-1.5 py-0.5">Electronics</span>
+              <span class="text-[10px] bg-green-50 text-green-600 rounded px-1.5 py-0.5" id="stockLabel">In stock</span>
+            </div>
+            <h3 class="text-sm font-semibold">Wireless Headphones</h3>
+            <p class="text-[11px] text-slate-500 mb-3">Over-ear Bluetooth headphones with noise cancelling and 30h battery life.</p>
+            <div class="flex justify-between items-end">
+              <span class="font-bold">129.99 €</span>
+              <span class="text-[10px] text-slate-500">Qty: 24</span>
+            </div>
+          </div>
+        </article> -->
+
+        <!---Error page--->
+
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
